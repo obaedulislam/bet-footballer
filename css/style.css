@@ -75,6 +75,17 @@ header .player-bg img{
 .head-img img{
     width: 60%;
 }
+.main-head{
+    background-image:  url(../images/line-marker.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+.select-five{
+    background-image: url(../images/title-line.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
 .single-player{
     background-color: #000;
     border: 1px solid #535353;
