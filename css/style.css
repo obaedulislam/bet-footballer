@@ -75,5 +75,8 @@ header .player-bg img{
 .head-img img{
     width: 60%;
 }
-
+.single-player{
+    background-color: #000;
+    border: 1px solid #535353;
+}
 /** === HEADER CSS End Here ===**/
