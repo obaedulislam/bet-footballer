@@ -15,3 +15,24 @@ function addPlayer(element){
     }
 }
 
+// All Input Field Value
+function inputBudgetAmount(inputId){
+    const inputBudgetField = document.getElementById(inputId);
+    const inputBudgetText = inputBudgetField.value;
+    const inputBudget = parseInt(inputBudgetText);
+    return inputBudget;
+}
+
+// Player Expense Calculation
+function playerBudget(){
+    const perPlayerBudget = inputBudgetAmount('per-player-budget');
+    const playerList = document.getElementById("add-player");
+    const playersOnlist = playerList.getElementsByTagName('li');
+    const players = playersOnlist.length;
+    const playerExpense = players * perPlayerBudget;
+
+    const playerExpenseText = document.getElementById('players-expense');
+    playerExpenseText.innerText = playerExpense;
+    return playerExpense;
+}
+
