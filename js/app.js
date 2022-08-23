@@ -1,3 +1,4 @@
+/* === Common Function Code Start ==== */
 // All Input Field Value
 function inputBudgetAmount(inputId){
     const inputBudgetField = document.getElementById(inputId);
@@ -12,8 +13,10 @@ function playerListLength(elementId){
     const players = playersOnlist.length;
     return players;
 }
+/* === Common Function Code End ==== */
 
-/* Player Selection Button Event Listener */
+
+/* === Player Selection Button Event Listener === */
 function addPlayer(element){
     const players = playerListLength("add-player");
     const playerList = document.getElementById("add-player");
@@ -32,7 +35,7 @@ function addPlayer(element){
 }
 
 
-// Player Expense Calculation Button Event Listener
+/** === Player Expense Calculation Button Event Listener === **/
 function playerBudget(){
     const perPlayerBudget = inputBudgetAmount('per-player-budget');
     if((perPlayerBudget === 'number')||(perPlayerBudget >= 0) ){
@@ -50,7 +53,7 @@ function playerBudget(){
     }
 }
 
-// Total Expense Calculation Button Event listener
+/* === Total Expense Calculation Button Event listener **/
 function totalBudget(){
     const playerExpense = playerBudget();
     const mangerBudget = inputBudgetAmount('manager-budget');
