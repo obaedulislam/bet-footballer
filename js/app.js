@@ -36,9 +36,9 @@ function addPlayer(element){
 
 
 /** === Player Expense Calculation Button Event Listener === **/
-function playerBudget(){
+document.getElementById("player-budget").addEventListener('click', function(){
     const perPlayerBudget = inputBudgetAmount('per-player-budget');
-    if((perPlayerBudget === 'number')||(perPlayerBudget >= 0) ){
+    if((!isNaN(perPlayerBudget)) && (perPlayerBudget >= 0) ){
         // Check Input validation if condition is true
         const players = playerListLength("add-player");
         const playerExpense = players * perPlayerBudget;
@@ -51,16 +51,16 @@ function playerBudget(){
         // Error message for wrong Input value in Player Expense input field
         alert("Please enter only positive number for Per Player cost.");
     }
-}
+});
 
 /* === Total Expense Calculation Button Event listener **/
 
-function totalBudget(){
+document.getElementById("total-budget").addEventListener('click', function(){ 
     const playerExpenseText = document.getElementById('players-expense');
     const playerExpense =  parseFloat(playerExpenseText.innerText);
     const mangerBudget = inputBudgetAmount('manager-budget');
     const coachBudget = inputBudgetAmount('coach-budget');
-    if(((playerExpense === 'number') && (mangerBudget === "number") && (coachBudget === "number")) || ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){ 
+    if(((!isNaN(playerExpense)) && (!isNaN(mangerBudget)) && (!isNaN(coachBudget))) && ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){ 
         // Check Input validation if condition is true
         const totalExpenseAmount = playerExpense + mangerBudget + coachBudget;
     
@@ -71,4 +71,4 @@ function totalBudget(){
         // Error message for wrong Input value in all input field
         alert("Please enter only positive number as your input");
     }
-}
+});
