@@ -5,7 +5,7 @@
 }
 body{
     font-family: 'Manrope', sans-serif;
-    background-color: #121212;
+    background-color: #141414;
 }
 h1{
     font-family: 'Berkshire Swash', cursive;
@@ -48,6 +48,9 @@ li::marker{
 input{
     border: 2px solid #fff;
     color: #fff;
+}
+.brand-bg{
+    background-color: #FF5E19;
 }
 /** === Common CSS End Here ===**/
 

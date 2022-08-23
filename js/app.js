@@ -1,20 +1,3 @@
-/* Player Selection Button Event Listener */
-function addPlayer(element){
-    const fivePlayerList = document.getElementById("add-player");
-    const items = fivePlayerList.getElementsByTagName('li');
-    const item = items.length;
-    if(item < 5){
-        const li = document.createElement('li');
-        const playerName = element.parentNode.parentNode.children[0].innerText;
-        li.innerText = playerName;
-        fivePlayerList.appendChild(li);
-        element.disabled = "true";
-    } 
-    else{
-        alert("You cant added more than five player")
-    }
-}
-
 // All Input Field Value
 function inputBudgetAmount(inputId){
     const inputBudgetField = document.getElementById(inputId);
@@ -22,39 +5,60 @@ function inputBudgetAmount(inputId){
     const inputBudget = parseInt(inputBudgetText);
     return inputBudget;        
 }
+// Player List Length
+function playerListLength(elementId){
+    const playerList = document.getElementById(elementId);
+    const playersOnlist = playerList.getElementsByTagName('li');
+    const players = playersOnlist.length;
+    return players;
+}
 
-// Player Expense Calculation
+/* Player Selection Button Event Listener */
+function addPlayer(element){
+    const players = playerListLength("add-player");
+    const playerList = document.getElementById("add-player");
+    if(players < 5){
+        // Add player on list
+        const li = document.createElement('li');
+        const playerName = element.parentNode.parentNode.children[0].innerText;
+        li.innerText = playerName;
+        playerList.appendChild(li);
+        element.disabled = "true";
+    } 
+    else{// Error msg for more than five player
+        alert("You cant added more than five player")
+    }
+}
+
+
+// Player Expense Calculation Button Event Listener
 function playerBudget(){
     const perPlayerBudget = inputBudgetAmount('per-player-budget');
-    if((perPlayerBudget === 'number')||(perPlayerBudget >= 0) ){
-
-        const playerList = document.getElementById("add-player");
-        const playersOnlist = playerList.getElementsByTagName('li');
-        const players = playersOnlist.length;
+    if((perPlayerBudget === 'number')||(perPlayerBudget >= 0) ){ // Check Input validation if condition is true
+        const players = playerListLength("add-player");
         const playerExpense = players * perPlayerBudget;
-    
+        
         const playerExpenseText = document.getElementById('players-expense');
         playerExpenseText.innerText = playerExpense;
         return playerExpense;
     }
-    else{
+    else{ // Error message for wrong Input value in Player Expense input field
         alert("Please enter only positive number for Per Player cost.");
     }
-
 }
 
-// Total Expense Calculation
+// Total Expense Calculation Button Event listener
 function totalBudget(){
     const playerExpense = playerBudget();
     const mangerBudget = inputBudgetAmount('manager-budget');
     const coachBudget = inputBudgetAmount('coach-budget');
-    if(((playerExpense === 'number') && (mangerBudget === "number") && (coachBudget === "number")) || ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){
+    if(((playerExpense === 'number') && (mangerBudget === "number") && (coachBudget === "number")) || ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){ // Check Input validation if condition is true
         const totalExpenseAmount = playerExpense + mangerBudget + coachBudget;
     
         const totalExpense = document.getElementById('total-expense');
         totalExpense.innerText  = totalExpenseAmount;
     }
-    else{
-        alert("Please enter only positive number as input");
+    else{// Error message for wrong Input value in all input field
+        alert("Please enter only positive number as your input");
     }
 }
