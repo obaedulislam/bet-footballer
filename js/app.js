@@ -3,7 +3,7 @@
 function inputBudgetAmount(inputId){
     const inputBudgetField = document.getElementById(inputId);
     const inputBudgetText = inputBudgetField.value;
-    const inputBudget = parseInt(inputBudgetText);
+    const inputBudget = parseFloat(inputBudgetText);
     return inputBudget;        
 }
 // Player List Length
@@ -30,7 +30,7 @@ function addPlayer(element){
     } 
     else{
         // Error msg for more than five player
-        alert("You cant added more than five player")
+        alert("You can't added more than Five player");
     }
 }
 
@@ -54,8 +54,10 @@ function playerBudget(){
 }
 
 /* === Total Expense Calculation Button Event listener **/
+
 function totalBudget(){
-    const playerExpense = playerBudget();
+    const playerExpenseText = document.getElementById('players-expense');
+    const playerExpense =  parseFloat(playerExpenseText.innerText);
     const mangerBudget = inputBudgetAmount('manager-budget');
     const coachBudget = inputBudgetAmount('coach-budget');
     if(((playerExpense === 'number') && (mangerBudget === "number") && (coachBudget === "number")) || ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){ 
