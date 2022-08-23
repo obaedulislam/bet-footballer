@@ -25,7 +25,8 @@ function addPlayer(element){
         playerList.appendChild(li);
         element.disabled = "true";
     } 
-    else{// Error msg for more than five player
+    else{
+        // Error msg for more than five player
         alert("You cant added more than five player")
     }
 }
@@ -34,15 +35,17 @@ function addPlayer(element){
 // Player Expense Calculation Button Event Listener
 function playerBudget(){
     const perPlayerBudget = inputBudgetAmount('per-player-budget');
-    if((perPlayerBudget === 'number')||(perPlayerBudget >= 0) ){ // Check Input validation if condition is true
+    if((perPlayerBudget === 'number')||(perPlayerBudget >= 0) ){
+        // Check Input validation if condition is true
         const players = playerListLength("add-player");
         const playerExpense = players * perPlayerBudget;
-        
+
         const playerExpenseText = document.getElementById('players-expense');
         playerExpenseText.innerText = playerExpense;
         return playerExpense;
     }
-    else{ // Error message for wrong Input value in Player Expense input field
+    else{ 
+        // Error message for wrong Input value in Player Expense input field
         alert("Please enter only positive number for Per Player cost.");
     }
 }
@@ -52,13 +55,15 @@ function totalBudget(){
     const playerExpense = playerBudget();
     const mangerBudget = inputBudgetAmount('manager-budget');
     const coachBudget = inputBudgetAmount('coach-budget');
-    if(((playerExpense === 'number') && (mangerBudget === "number") && (coachBudget === "number")) || ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){ // Check Input validation if condition is true
+    if(((playerExpense === 'number') && (mangerBudget === "number") && (coachBudget === "number")) || ((playerExpense >= 0) && (mangerBudget >= 0) && (coachBudget >=0))){ 
+        // Check Input validation if condition is true
         const totalExpenseAmount = playerExpense + mangerBudget + coachBudget;
     
         const totalExpense = document.getElementById('total-expense');
         totalExpense.innerText  = totalExpenseAmount;
     }
-    else{// Error message for wrong Input value in all input field
+    else{
+        // Error message for wrong Input value in all input field
         alert("Please enter only positive number as your input");
     }
 }
